@@ -16,9 +16,9 @@ public class Blood_Bank_Implimentaion extends UnicastRemoteObject implements Blo
     public Blood_Bank_Implimentaion() throws RemoteException {
         try {
             // Establish the database connection
-            String url = "jdbc:mysql://localhost:3306/blood_bank";
+            String url = "jdbc:mariadb://localhost:3306/blood_bank";
             String username = "root";
-            String password = "your_password";
+            String password = "";
             connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
             System.err.println("Error connecting to the database: " + e.getMessage());
