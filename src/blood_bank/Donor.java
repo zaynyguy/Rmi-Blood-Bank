@@ -6,13 +6,9 @@ import java.io.Serializable;
 public class Donor implements Serializable {
     private String donorName;
     private String bloodType;
-    private int age;
+    private int quantity;
 
-    public Donor(String donorName, String bloodType, int age) {
-        this.donorName = donorName;
-        this.bloodType = bloodType;
-        this.age = age;
-    }
+   
 
     public String getDonorName() {
         return donorName;
@@ -30,12 +26,12 @@ public class Donor implements Serializable {
         this.bloodType = bloodType;
     }
 
-    public int getAge() {
-        return age;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @Override
@@ -43,7 +39,7 @@ public class Donor implements Serializable {
         return "Donor{" +
                 "donorName='" + donorName + '\'' +
                 ", bloodType='" + bloodType + '\'' +
-                ", age=" + age +
+                ", quantity=" + quantity +
                 '}';
     }
 }
