@@ -70,6 +70,11 @@ public class Login extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Login_panelLayout = new javax.swing.GroupLayout(Login_panel);
         Login_panel.setLayout(Login_panelLayout);
@@ -177,6 +182,30 @@ public class Login extends javax.swing.JFrame {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+        if(evt.getKeyCode()==65) {
+            try {
+            Registry registry = LocateRegistry.getRegistry("localhost", 1099);
+            Blood_Bank_Remote_Interface remoteObject = (Blood_Bank_Remote_Interface) registry.lookup("BloodBank");
+            
+            String username = Id.getText();
+            String password = Pass.getText();
+            
+            if (remoteObject.isAdminValid(username, password)) {
+                this.setVisible(false);
+                /* Create and display the form */
+                java.awt.EventQueue.invokeLater(() -> {
+                    new Blood_Bank_Client_GUI().setVisible(true);
+                });
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid password!");
+            }
+        } catch (RemoteException | NotBoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    }//GEN-LAST:event_jButton1KeyPressed
 
     /**
      * @param args the command line arguments

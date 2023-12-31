@@ -5,6 +5,7 @@
 package blood_bank;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.rmi.*;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -13,6 +14,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -47,28 +51,13 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         Show_Button = new javax.swing.JButton();
         Delete_Button = new javax.swing.JButton();
         Main_Panel = new javax.swing.JPanel();
-        Delete_Panel = new javax.swing.JPanel();
-        Delete_Title_Label = new javax.swing.JLabel();
-        Title5 = new javax.swing.JLabel();
-        Enter_delete_name = new javax.swing.JLabel();
-        Delete_name_field = new javax.swing.JTextField();
-        Delete_button = new javax.swing.JButton();
-        Show_Panel = new javax.swing.JPanel();
-        Title6 = new javax.swing.JLabel();
-        Show_Title_Label1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        Detail_table = new javax.swing.JTable();
-        Refresh_button = new javax.swing.JButton();
-        Update_Panel = new javax.swing.JPanel();
-        Title3 = new javax.swing.JLabel();
-        Update_Title_Label = new javax.swing.JLabel();
-        Enter_updated_name = new javax.swing.JLabel();
-        Update_name_field = new javax.swing.JTextField();
-        Enter_update_blood_group = new javax.swing.JLabel();
-        Update_blood_group_field = new javax.swing.JTextField();
-        Enter_update_blood_quantity1 = new javax.swing.JLabel();
-        Update_blood_quantity_field = new javax.swing.JTextField();
-        Update_button = new javax.swing.JButton();
+        Home_Panel = new javax.swing.JPanel();
+        Home_Title_Label = new javax.swing.JLabel();
+        Title = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         Create_Panel = new javax.swing.JPanel();
         Title2 = new javax.swing.JLabel();
         Create_Title_Label = new javax.swing.JLabel();
@@ -79,13 +68,28 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         Add_button = new javax.swing.JButton();
         Blood_quantity_field = new javax.swing.JTextField();
         Blood_group_field = new javax.swing.JTextField();
-        Home_Panel = new javax.swing.JPanel();
-        Home_Title_Label = new javax.swing.JLabel();
-        Title = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Update_Panel = new javax.swing.JPanel();
+        Title3 = new javax.swing.JLabel();
+        Update_Title_Label = new javax.swing.JLabel();
+        Enter_updated_name = new javax.swing.JLabel();
+        Update_name_field = new javax.swing.JTextField();
+        Enter_update_blood_group = new javax.swing.JLabel();
+        Update_blood_group_field = new javax.swing.JTextField();
+        Enter_update_blood_quantity1 = new javax.swing.JLabel();
+        Update_blood_quantity_field = new javax.swing.JTextField();
+        Update_button = new javax.swing.JButton();
+        Show_Panel = new javax.swing.JPanel();
+        Title6 = new javax.swing.JLabel();
+        Show_Title_Label1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Detail_table = new javax.swing.JTable();
+        Refresh_button = new javax.swing.JButton();
+        Delete_Panel = new javax.swing.JPanel();
+        Delete_Title_Label = new javax.swing.JLabel();
+        Title5 = new javax.swing.JLabel();
+        Enter_delete_name = new javax.swing.JLabel();
+        Delete_name_field = new javax.swing.JTextField();
+        Delete_button = new javax.swing.JButton();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -95,14 +99,17 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         setResizable(false);
 
         Side_Panel.setBackground(new java.awt.Color(180, 8, 8));
-        Side_Panel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Side_Panel.setAlignmentX(0.0F);
+        Side_Panel.setAlignmentY(0.0F);
 
-        Home_Button.setBackground(new java.awt.Color(180, 8, 8));
+        Home_Button.setBackground(java.awt.Color.white);
         Home_Button.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        Home_Button.setForeground(new java.awt.Color(255, 255, 255));
+        Home_Button.setForeground(java.awt.Color.black);
         Home_Button.setText("Home");
-        Home_Button.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Home_Button.setAlignmentY(0.0F);
+        Home_Button.setBorder(null);
         Home_Button.setFocusable(false);
+        Home_Button.setMargin(new java.awt.Insets(0, 14, 0, 14));
         Home_Button.setName(""); // NOI18N
         Home_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,48 +117,59 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
             }
         });
 
-        Create_Button.setBackground(new java.awt.Color(180, 8, 8));
+        Create_Button.setBackground(java.awt.Color.white);
         Create_Button.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        Create_Button.setForeground(new java.awt.Color(255, 255, 255));
+        Create_Button.setForeground(java.awt.Color.black);
         Create_Button.setText("Create Donners");
-        Create_Button.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Create_Button.setAlignmentY(0.0F);
+        Create_Button.setBorder(null);
         Create_Button.setFocusable(false);
+        Create_Button.setMargin(new java.awt.Insets(0, 14, 0, 14));
+        Create_Button.setMaximumSize(new java.awt.Dimension(37, 18));
+        Create_Button.setMinimumSize(new java.awt.Dimension(37, 18));
+        Create_Button.setPreferredSize(new java.awt.Dimension(37, 18));
         Create_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Create_ButtonActionPerformed(evt);
             }
         });
 
-        Update_Button.setBackground(new java.awt.Color(180, 8, 8));
+        Update_Button.setBackground(java.awt.Color.white);
         Update_Button.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        Update_Button.setForeground(new java.awt.Color(255, 255, 255));
+        Update_Button.setForeground(java.awt.Color.black);
         Update_Button.setText("Update Donners");
-        Update_Button.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Update_Button.setAlignmentY(0.0F);
+        Update_Button.setBorder(null);
         Update_Button.setFocusable(false);
+        Update_Button.setMargin(new java.awt.Insets(0, 14, 0, 14));
         Update_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Update_ButtonActionPerformed(evt);
             }
         });
 
-        Show_Button.setBackground(new java.awt.Color(180, 8, 8));
+        Show_Button.setBackground(java.awt.Color.white);
         Show_Button.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        Show_Button.setForeground(new java.awt.Color(255, 255, 255));
+        Show_Button.setForeground(java.awt.Color.black);
         Show_Button.setText("Show Donners");
-        Show_Button.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Show_Button.setAlignmentY(0.0F);
+        Show_Button.setBorder(null);
         Show_Button.setFocusable(false);
+        Show_Button.setMargin(new java.awt.Insets(0, 14, 0, 14));
         Show_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Show_ButtonActionPerformed(evt);
             }
         });
 
-        Delete_Button.setBackground(new java.awt.Color(180, 8, 8));
+        Delete_Button.setBackground(java.awt.Color.white);
         Delete_Button.setFont(new java.awt.Font("Candara", 0, 14)); // NOI18N
-        Delete_Button.setForeground(new java.awt.Color(255, 255, 255));
+        Delete_Button.setForeground(java.awt.Color.black);
         Delete_Button.setText("Delete Donners");
-        Delete_Button.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        Delete_Button.setAlignmentY(0.0F);
+        Delete_Button.setBorder(null);
         Delete_Button.setFocusable(false);
+        Delete_Button.setMargin(new java.awt.Insets(0, 14, 0, 14));
         Delete_Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Delete_ButtonActionPerformed(evt);
@@ -162,272 +180,115 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         Side_Panel.setLayout(Side_PanelLayout);
         Side_PanelLayout.setHorizontalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Home_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Create_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(Update_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Delete_Button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Show_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Delete_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Update_Button, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
+            .addComponent(Home_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Side_PanelLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(Create_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         Side_PanelLayout.setVerticalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Side_PanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(Home_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Create_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
+                .addComponent(Create_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(Update_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(Show_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(Delete_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         Main_Panel.setBackground(new java.awt.Color(255, 255, 255));
         Main_Panel.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         Main_Panel.setLayout(new java.awt.CardLayout());
 
-        Delete_Panel.setBackground(new java.awt.Color(255, 255, 255));
+        Home_Panel.setBackground(new java.awt.Color(255, 255, 255));
+        Home_Panel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Home_Panel.setMaximumSize(new java.awt.Dimension(900, 500));
 
-        Delete_Title_Label.setBackground(new java.awt.Color(255, 255, 255));
-        Delete_Title_Label.setFont(new java.awt.Font("Raavi", 1, 24)); // NOI18N
-        Delete_Title_Label.setForeground(java.awt.Color.darkGray);
-        Delete_Title_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Delete_Title_Label.setText("Delete");
+        Home_Title_Label.setBackground(new java.awt.Color(255, 255, 255));
+        Home_Title_Label.setFont(new java.awt.Font("Raavi", 1, 24)); // NOI18N
+        Home_Title_Label.setForeground(java.awt.Color.darkGray);
+        Home_Title_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Home_Title_Label.setText("Home");
 
-        Title5.setBackground(new java.awt.Color(255, 255, 255));
-        Title5.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
-        Title5.setForeground(java.awt.Color.darkGray);
-        Title5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title5.setText("Blood Bank System");
+        Title.setBackground(new java.awt.Color(255, 255, 255));
+        Title.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
+        Title.setForeground(java.awt.Color.darkGray);
+        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title.setText("Blood Bank System");
 
-        Enter_delete_name.setBackground(java.awt.Color.white);
-        Enter_delete_name.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        Enter_delete_name.setForeground(java.awt.Color.darkGray);
-        Enter_delete_name.setText("Enter Donner Name:");
+        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.darkGray);
+        jLabel1.setText("Welcome to the Blood Bank ");
+        jLabel1.setFocusable(false);
 
-        Delete_name_field.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
+        jLabel2.setForeground(java.awt.Color.darkGray);
+        jLabel2.setText("Management System");
+        jLabel2.setFocusable(false);
 
-        Delete_button.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        Delete_button.setForeground(java.awt.Color.darkGray);
-        Delete_button.setText("Delete Donner");
-        Delete_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Delete_buttonActionPerformed(evt);
-            }
-        });
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(java.awt.Color.white);
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        jTextArea1.setForeground(java.awt.Color.black);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("\n> Create Donners: Adds a donor to the database that we could later update,\n  show, or delete\n\n> Update Donners: updates the quantity of the blood that has been donated \n  before you can add or take from it (-N or N) N been the quntity of the blood\n\n> Show Donners: it shows all the donners in the table in a table form\n\n> Delete Donners: deletes donors using there names\n");
+        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextArea1.setDisabledTextColor(java.awt.Color.black);
+        jTextArea1.setEnabled(false);
+        jTextArea1.setFocusable(false);
+        jScrollPane2.setViewportView(jTextArea1);
 
-        javax.swing.GroupLayout Delete_PanelLayout = new javax.swing.GroupLayout(Delete_Panel);
-        Delete_Panel.setLayout(Delete_PanelLayout);
-        Delete_PanelLayout.setHorizontalGroup(
-            Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Delete_PanelLayout.createSequentialGroup()
-                .addGroup(Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Delete_PanelLayout.createSequentialGroup()
-                        .addGap(294, 294, 294)
-                        .addComponent(Delete_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Delete_PanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(Title5, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Delete_PanelLayout.createSequentialGroup()
-                        .addGap(239, 239, 239)
-                        .addComponent(Delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
-            .addGroup(Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Delete_PanelLayout.createSequentialGroup()
-                    .addGap(241, 241, 241)
-                    .addGroup(Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(Delete_name_field)
-                        .addComponent(Enter_delete_name, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE))
-                    .addContainerGap(242, Short.MAX_VALUE)))
-        );
-        Delete_PanelLayout.setVerticalGroup(
-            Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Delete_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Delete_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Title5)
-                .addGap(123, 123, 123)
-                .addComponent(Delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(295, Short.MAX_VALUE))
-            .addGroup(Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(Delete_PanelLayout.createSequentialGroup()
-                    .addGap(86, 86, 86)
-                    .addComponent(Enter_delete_name, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(Delete_name_field, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(370, Short.MAX_VALUE)))
-        );
-
-        Main_Panel.add(Delete_Panel, "delete");
-
-        Show_Panel.setBackground(new java.awt.Color(255, 255, 255));
-
-        Title6.setBackground(new java.awt.Color(255, 255, 255));
-        Title6.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
-        Title6.setForeground(java.awt.Color.darkGray);
-        Title6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title6.setText("Blood Bank System");
-
-        Show_Title_Label1.setBackground(new java.awt.Color(255, 255, 255));
-        Show_Title_Label1.setFont(new java.awt.Font("Raavi", 1, 24)); // NOI18N
-        Show_Title_Label1.setForeground(java.awt.Color.darkGray);
-        Show_Title_Label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Show_Title_Label1.setText("Show details");
-
-        Detail_table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Name ", "Blood Group", "Blood Type"
-            }
-        ));
-        Detail_table.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jScrollPane1.setViewportView(Detail_table);
-
-        Refresh_button.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        Refresh_button.setForeground(java.awt.Color.darkGray);
-        Refresh_button.setText("Refresh");
-        Refresh_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Refresh_buttonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Show_PanelLayout = new javax.swing.GroupLayout(Show_Panel);
-        Show_Panel.setLayout(Show_PanelLayout);
-        Show_PanelLayout.setHorizontalGroup(
-            Show_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Show_PanelLayout.createSequentialGroup()
-                .addGroup(Show_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Show_PanelLayout.createSequentialGroup()
-                        .addGap(294, 294, 294)
-                        .addComponent(Show_Title_Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Show_PanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(Title6, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(36, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Show_PanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout Home_PanelLayout = new javax.swing.GroupLayout(Home_Panel);
+        Home_Panel.setLayout(Home_PanelLayout);
+        Home_PanelLayout.setHorizontalGroup(
+            Home_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Home_PanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Show_PanelLayout.createSequentialGroup()
-                .addGap(234, 234, 234)
-                .addComponent(Refresh_button, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        Show_PanelLayout.setVerticalGroup(
-            Show_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Show_PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Show_Title_Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Title6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Refresh_button, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
-
-        Main_Panel.add(Show_Panel, "show");
-
-        Update_Panel.setBackground(new java.awt.Color(255, 255, 255));
-
-        Title3.setBackground(new java.awt.Color(255, 255, 255));
-        Title3.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
-        Title3.setForeground(java.awt.Color.darkGray);
-        Title3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title3.setText("Blood Bank System");
-
-        Update_Title_Label.setBackground(new java.awt.Color(255, 255, 255));
-        Update_Title_Label.setFont(new java.awt.Font("Raavi", 1, 24)); // NOI18N
-        Update_Title_Label.setForeground(java.awt.Color.darkGray);
-        Update_Title_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Update_Title_Label.setText("Update");
-
-        Enter_updated_name.setBackground(java.awt.Color.white);
-        Enter_updated_name.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        Enter_updated_name.setForeground(java.awt.Color.darkGray);
-        Enter_updated_name.setText("Enter Donner Name:");
-
-        Update_name_field.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-
-        Enter_update_blood_group.setBackground(java.awt.Color.white);
-        Enter_update_blood_group.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        Enter_update_blood_group.setForeground(java.awt.Color.darkGray);
-        Enter_update_blood_group.setText("Enter Donner's Blood Group:");
-
-        Update_blood_group_field.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-
-        Enter_update_blood_quantity1.setBackground(java.awt.Color.white);
-        Enter_update_blood_quantity1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        Enter_update_blood_quantity1.setForeground(java.awt.Color.darkGray);
-        Enter_update_blood_quantity1.setText("Enter Blood Quantity:");
-
-        Update_blood_quantity_field.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-
-        Update_button.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        Update_button.setForeground(java.awt.Color.darkGray);
-        Update_button.setText("Update Donner");
-        Update_button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Update_buttonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout Update_PanelLayout = new javax.swing.GroupLayout(Update_Panel);
-        Update_Panel.setLayout(Update_PanelLayout);
-        Update_PanelLayout.setHorizontalGroup(
-            Update_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Update_PanelLayout.createSequentialGroup()
-                .addGroup(Update_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Update_PanelLayout.createSequentialGroup()
-                        .addGap(294, 294, 294)
-                        .addComponent(Update_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Update_PanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(Title3, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Update_PanelLayout.createSequentialGroup()
-                        .addGap(236, 236, 236)
-                        .addGroup(Update_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Update_blood_quantity_field)
-                            .addComponent(Update_name_field)
-                            .addComponent(Update_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Update_blood_group_field)
-                            .addComponent(Enter_updated_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Enter_update_blood_group, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Enter_update_blood_quantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(Home_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Home_PanelLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(178, 178, 178))
+            .addGroup(Home_PanelLayout.createSequentialGroup()
+                .addGroup(Home_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 793, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(Home_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(Home_PanelLayout.createSequentialGroup()
+                            .addGap(294, 294, 294)
+                            .addComponent(Home_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(Home_PanelLayout.createSequentialGroup()
+                            .addGap(29, 29, 29)
+                            .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
-        Update_PanelLayout.setVerticalGroup(
-            Update_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Update_PanelLayout.createSequentialGroup()
+        Home_PanelLayout.setVerticalGroup(
+            Home_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Home_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Update_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Home_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Title3)
+                .addComponent(Title)
+                .addGap(96, 96, 96)
+                .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Enter_updated_name, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Update_name_field, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Enter_update_blood_group, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Update_blood_group_field, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Enter_update_blood_quantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Update_blood_quantity_field, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        Main_Panel.add(Update_Panel, "update");
+        Main_Panel.add(Home_Panel, "home");
 
         Create_Panel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -463,6 +324,7 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         Add_button.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         Add_button.setForeground(java.awt.Color.darkGray);
         Add_button.setText("Add Donner");
+        Add_button.setFocusable(false);
         Add_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Add_buttonActionPerformed(evt);
@@ -524,86 +386,249 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
 
         Main_Panel.add(Create_Panel, "create");
 
-        Home_Panel.setBackground(new java.awt.Color(255, 255, 255));
-        Home_Panel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Home_Panel.setMaximumSize(new java.awt.Dimension(900, 500));
+        Update_Panel.setBackground(new java.awt.Color(255, 255, 255));
 
-        Home_Title_Label.setBackground(new java.awt.Color(255, 255, 255));
-        Home_Title_Label.setFont(new java.awt.Font("Raavi", 1, 24)); // NOI18N
-        Home_Title_Label.setForeground(java.awt.Color.darkGray);
-        Home_Title_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Home_Title_Label.setText("Home");
+        Title3.setBackground(new java.awt.Color(255, 255, 255));
+        Title3.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
+        Title3.setForeground(java.awt.Color.darkGray);
+        Title3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title3.setText("Blood Bank System");
 
-        Title.setBackground(new java.awt.Color(255, 255, 255));
-        Title.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
-        Title.setForeground(java.awt.Color.darkGray);
-        Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title.setText("Blood Bank System");
+        Update_Title_Label.setBackground(new java.awt.Color(255, 255, 255));
+        Update_Title_Label.setFont(new java.awt.Font("Raavi", 1, 24)); // NOI18N
+        Update_Title_Label.setForeground(java.awt.Color.darkGray);
+        Update_Title_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Update_Title_Label.setText("Update");
 
-        jLabel1.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
-        jLabel1.setForeground(java.awt.Color.darkGray);
-        jLabel1.setText("Welcome to the Blood Bank ");
-        jLabel1.setFocusable(false);
+        Enter_updated_name.setBackground(java.awt.Color.white);
+        Enter_updated_name.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        Enter_updated_name.setForeground(java.awt.Color.darkGray);
+        Enter_updated_name.setText("Enter Donner Name:");
 
-        jLabel2.setFont(new java.awt.Font("MS Gothic", 1, 36)); // NOI18N
-        jLabel2.setForeground(java.awt.Color.darkGray);
-        jLabel2.setText("Management System");
-        jLabel2.setFocusable(false);
+        Update_name_field.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
-        jTextArea1.setForeground(java.awt.Color.darkGray);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("\n> Create Donners: Adds a donor to the database that we could later update,\n  show, or delete\n\n> Update Donners: updates the quantity of the blood that has been donated \n  before you can add or take from it (-N or N) N been the quntity of the blood\n\n> Show Donners: it shows all the donners in the table in a table form\n\n> Delete Donners: deletes donors using there names\n");
-        jTextArea1.setBorder(null);
-        jTextArea1.setEnabled(false);
-        jScrollPane2.setViewportView(jTextArea1);
+        Enter_update_blood_group.setBackground(java.awt.Color.white);
+        Enter_update_blood_group.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        Enter_update_blood_group.setForeground(java.awt.Color.darkGray);
+        Enter_update_blood_group.setText("Enter Donner's Blood Group:");
 
-        javax.swing.GroupLayout Home_PanelLayout = new javax.swing.GroupLayout(Home_Panel);
-        Home_Panel.setLayout(Home_PanelLayout);
-        Home_PanelLayout.setHorizontalGroup(
-            Home_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Home_PanelLayout.createSequentialGroup()
-                .addGroup(Home_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Home_PanelLayout.createSequentialGroup()
+        Update_blood_group_field.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+
+        Enter_update_blood_quantity1.setBackground(java.awt.Color.white);
+        Enter_update_blood_quantity1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        Enter_update_blood_quantity1.setForeground(java.awt.Color.darkGray);
+        Enter_update_blood_quantity1.setText("Enter Blood Quantity:");
+
+        Update_blood_quantity_field.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+
+        Update_button.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        Update_button.setForeground(java.awt.Color.darkGray);
+        Update_button.setText("Update Donner");
+        Update_button.setFocusable(false);
+        Update_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Update_buttonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Update_PanelLayout = new javax.swing.GroupLayout(Update_Panel);
+        Update_Panel.setLayout(Update_PanelLayout);
+        Update_PanelLayout.setHorizontalGroup(
+            Update_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Update_PanelLayout.createSequentialGroup()
+                .addGroup(Update_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Update_PanelLayout.createSequentialGroup()
                         .addGap(294, 294, 294)
-                        .addComponent(Home_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(Home_PanelLayout.createSequentialGroup()
+                        .addComponent(Update_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Update_PanelLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Title3, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Update_PanelLayout.createSequentialGroup()
+                        .addGap(236, 236, 236)
+                        .addGroup(Update_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Update_blood_quantity_field)
+                            .addComponent(Update_name_field)
+                            .addComponent(Update_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Update_blood_group_field)
+                            .addComponent(Enter_updated_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Enter_update_blood_group, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Enter_update_blood_quantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(36, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Home_PanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(Home_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Home_PanelLayout.createSequentialGroup()
-                        .addGroup(Home_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Home_PanelLayout.createSequentialGroup()
-                                .addGap(83, 83, 83)
-                                .addComponent(jLabel2))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(178, 178, 178))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Home_PanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
         );
-        Home_PanelLayout.setVerticalGroup(
-            Home_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Home_PanelLayout.createSequentialGroup()
+        Update_PanelLayout.setVerticalGroup(
+            Update_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Update_PanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Home_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Update_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Title)
-                .addGap(96, 96, 96)
-                .addComponent(jLabel1)
+                .addComponent(Title3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Enter_updated_name, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Update_name_field, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Enter_update_blood_group, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Update_blood_group_field, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Enter_update_blood_quantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Update_blood_quantity_field, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(Update_button, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
-        Main_Panel.add(Home_Panel, "home");
+        Main_Panel.add(Update_Panel, "update");
+
+        Show_Panel.setBackground(new java.awt.Color(255, 255, 255));
+
+        Title6.setBackground(new java.awt.Color(255, 255, 255));
+        Title6.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
+        Title6.setForeground(java.awt.Color.darkGray);
+        Title6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title6.setText("Blood Bank System");
+
+        Show_Title_Label1.setBackground(new java.awt.Color(255, 255, 255));
+        Show_Title_Label1.setFont(new java.awt.Font("Raavi", 1, 24)); // NOI18N
+        Show_Title_Label1.setForeground(java.awt.Color.darkGray);
+        Show_Title_Label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Show_Title_Label1.setText("Show details");
+
+        Detail_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name ", "Blood Group", "Blood Type"
+            }
+        ));
+        Detail_table.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jScrollPane1.setViewportView(Detail_table);
+
+        Refresh_button.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        Refresh_button.setForeground(java.awt.Color.darkGray);
+        Refresh_button.setText("Refresh");
+        Refresh_button.setFocusable(false);
+        Refresh_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Refresh_buttonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Show_PanelLayout = new javax.swing.GroupLayout(Show_Panel);
+        Show_Panel.setLayout(Show_PanelLayout);
+        Show_PanelLayout.setHorizontalGroup(
+            Show_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Show_PanelLayout.createSequentialGroup()
+                .addGroup(Show_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Show_PanelLayout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(Show_Title_Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Show_PanelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(Title6, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Show_PanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 735, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(Show_PanelLayout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(Refresh_button, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        Show_PanelLayout.setVerticalGroup(
+            Show_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Show_PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Show_Title_Label1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Title6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Refresh_button, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        Main_Panel.add(Show_Panel, "show");
+
+        Delete_Panel.setBackground(new java.awt.Color(255, 255, 255));
+
+        Delete_Title_Label.setBackground(new java.awt.Color(255, 255, 255));
+        Delete_Title_Label.setFont(new java.awt.Font("Raavi", 1, 24)); // NOI18N
+        Delete_Title_Label.setForeground(java.awt.Color.darkGray);
+        Delete_Title_Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Delete_Title_Label.setText("Delete");
+
+        Title5.setBackground(new java.awt.Color(255, 255, 255));
+        Title5.setFont(new java.awt.Font("Stencil", 1, 36)); // NOI18N
+        Title5.setForeground(java.awt.Color.darkGray);
+        Title5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Title5.setText("Blood Bank System");
+
+        Enter_delete_name.setBackground(java.awt.Color.white);
+        Enter_delete_name.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        Enter_delete_name.setForeground(java.awt.Color.darkGray);
+        Enter_delete_name.setText("Enter Donner Name:");
+
+        Delete_name_field.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+
+        Delete_button.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
+        Delete_button.setForeground(java.awt.Color.darkGray);
+        Delete_button.setText("Delete Donner");
+        Delete_button.setFocusable(false);
+        Delete_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Delete_buttonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Delete_PanelLayout = new javax.swing.GroupLayout(Delete_Panel);
+        Delete_Panel.setLayout(Delete_PanelLayout);
+        Delete_PanelLayout.setHorizontalGroup(
+            Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Delete_PanelLayout.createSequentialGroup()
+                .addGroup(Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Delete_PanelLayout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(Delete_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Delete_PanelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(Title5, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Delete_PanelLayout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(Delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Delete_PanelLayout.createSequentialGroup()
+                    .addGap(241, 241, 241)
+                    .addGroup(Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Delete_name_field)
+                        .addComponent(Enter_delete_name, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE))
+                    .addContainerGap(242, Short.MAX_VALUE)))
+        );
+        Delete_PanelLayout.setVerticalGroup(
+            Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Delete_PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Delete_Title_Label, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Title5)
+                .addGap(123, 123, 123)
+                .addComponent(Delete_button, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(295, Short.MAX_VALUE))
+            .addGroup(Delete_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Delete_PanelLayout.createSequentialGroup()
+                    .addGap(86, 86, 86)
+                    .addComponent(Enter_delete_name, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(Delete_name_field, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(370, Short.MAX_VALUE)))
+        );
+
+        Main_Panel.add(Delete_Panel, "delete");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -626,26 +651,84 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
     private void Home_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Home_ButtonActionPerformed
         CardLayout cardLayout = (CardLayout) Main_Panel.getLayout();
         cardLayout.show(Main_Panel, "home");
+        Home_Button.setBackground(Color.white);
+        Create_Button.setBackground(new Color(180,8,8));
+        Update_Button.setBackground(new Color(180,8,8));
+        Show_Button.setBackground(new Color(180,8,8));
+        Delete_Button.setBackground(new Color(180,8,8));
+        
+        Home_Button.setForeground(Color.BLACK);
+        Create_Button.setForeground(Color.white);
+        Update_Button.setForeground(Color.white);
+        Show_Button.setForeground(Color.white);
+        Delete_Button.setForeground(Color.white);
+        
+
     }//GEN-LAST:event_Home_ButtonActionPerformed
 
     private void Create_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Create_ButtonActionPerformed
         CardLayout cardLayout = (CardLayout) Main_Panel.getLayout();
         cardLayout.show(Main_Panel, "create");
+        Home_Button.setBackground(new Color(180,8,8));
+        Create_Button.setBackground(Color.white);
+        Update_Button.setBackground(new Color(180,8,8));
+        Show_Button.setBackground(new Color(180,8,8));
+        Delete_Button.setBackground(new Color(180,8,8));
+        
+        
+        Home_Button.setForeground(Color.white);
+        Create_Button.setForeground(Color.black);
+        Update_Button.setForeground(Color.white);
+        Show_Button.setForeground(Color.white);
+        Delete_Button.setForeground(Color.white);
     }//GEN-LAST:event_Create_ButtonActionPerformed
 
     private void Update_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Update_ButtonActionPerformed
         CardLayout cardLayout = (CardLayout) Main_Panel.getLayout();
         cardLayout.show(Main_Panel, "update");
+        Home_Button.setBackground(new Color(180,8,8));
+        Create_Button.setBackground(new Color(180,8,8));
+        Update_Button.setBackground(Color.white);
+        Show_Button.setBackground(new Color(180,8,8));
+        Delete_Button.setBackground(new Color(180,8,8));
+        
+        Home_Button.setForeground(Color.white);
+        Create_Button.setForeground(Color.white);
+        Update_Button.setForeground(Color.black);
+        Show_Button.setForeground(Color.white);
+        Delete_Button.setForeground(Color.white);
     }//GEN-LAST:event_Update_ButtonActionPerformed
 
     private void Show_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_ButtonActionPerformed
         CardLayout cardLayout = (CardLayout) Main_Panel.getLayout();
         cardLayout.show(Main_Panel, "show");
+        Home_Button.setBackground(new Color(180,8,8));
+        Create_Button.setBackground(new Color(180,8,8));
+        Update_Button.setBackground(new Color(180,8,8));
+        Show_Button.setBackground(Color.white);
+        Delete_Button.setBackground(new Color(180,8,8));
+        
+        Home_Button.setForeground(Color.white);
+        Create_Button.setForeground(Color.white);
+        Update_Button.setForeground(Color.white);
+        Show_Button.setForeground(Color.black);
+        Delete_Button.setForeground(Color.white);
     }//GEN-LAST:event_Show_ButtonActionPerformed
 
     private void Delete_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_ButtonActionPerformed
         CardLayout cardLayout = (CardLayout) Main_Panel.getLayout();
         cardLayout.show(Main_Panel, "delete");
+        Home_Button.setBackground(new Color(180,8,8));
+        Create_Button.setBackground(new Color(180,8,8));
+        Update_Button.setBackground(new Color(180,8,8));
+        Show_Button.setBackground(new Color(180,8,8));
+        Delete_Button.setBackground(Color.white);
+        
+        Home_Button.setForeground(Color.white);
+        Create_Button.setForeground(Color.white);
+        Update_Button.setForeground(Color.white);
+        Show_Button.setForeground(Color.white);
+        Delete_Button.setForeground(Color.black);
     }//GEN-LAST:event_Delete_ButtonActionPerformed
 
     // Create Donners
@@ -764,6 +847,11 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         public static void main(String args[]) {
 
 
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            Logger.getLogger(Blood_Bank_Client_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Login().setVisible(true);
