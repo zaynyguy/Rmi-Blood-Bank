@@ -1,5 +1,6 @@
 package blood_bank;
 
+import java.awt.event.KeyEvent;
 import java.rmi.NotBoundException;
 import javax.swing.JOptionPane;
 import java.rmi.registry.Registry;
@@ -60,19 +61,26 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setForeground(java.awt.Color.black);
         jLabel2.setText("Password");
 
+        Id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                IdKeyPressed(evt);
+            }
+        });
+
         Pass.setForeground(java.awt.Color.black);
+        Pass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PassKeyPressed(evt);
+            }
+        });
 
         jButton1.setFont(new java.awt.Font("MS Gothic", 1, 18)); // NOI18N
         jButton1.setForeground(java.awt.Color.darkGray);
         jButton1.setText("Login");
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton1KeyPressed(evt);
             }
         });
 
@@ -183,29 +191,33 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
-        if(evt.getKeyCode()==65) {
+    private void PassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PassKeyPressed
+         if (evt.getKeyCode() == KeyEvent.VK_ENTER) { // Check if Enter key is pressed
             try {
-            Registry registry = LocateRegistry.getRegistry("localhost", 1099);
-            Blood_Bank_Remote_Interface remoteObject = (Blood_Bank_Remote_Interface) registry.lookup("BloodBank");
-            
-            String username = Id.getText();
-            String password = Pass.getText();
-            
-            if (remoteObject.isAdminValid(username, password)) {
-                this.setVisible(false);
-                /* Create and display the form */
-                java.awt.EventQueue.invokeLater(() -> {
-                    new Blood_Bank_Client_GUI().setVisible(true);
-                });
-            } else {
-                JOptionPane.showMessageDialog(null, "Invalid password!");
+                Registry registry = LocateRegistry.getRegistry("localhost", 1099);
+                Blood_Bank_Remote_Interface remoteObject = (Blood_Bank_Remote_Interface) registry.lookup("BloodBank");
+
+                String username = Id.getText();
+                String password = Pass.getText();
+
+                if (remoteObject.isAdminValid(username, password)) {
+                    this.setVisible(false);
+                    /* Create and display the form */
+                    java.awt.EventQueue.invokeLater(() -> {
+                        new Blood_Bank_Client_GUI().setVisible(true);
+                    });
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid password!");
+                }
+            } catch (RemoteException | NotBoundException ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } catch (RemoteException | NotBoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    }//GEN-LAST:event_jButton1KeyPressed
+    }//GEN-LAST:event_PassKeyPressed
+
+    private void IdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IdKeyPressed
+        
+    }//GEN-LAST:event_IdKeyPressed
 
     /**
      * @param args the command line arguments

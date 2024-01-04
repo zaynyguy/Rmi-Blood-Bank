@@ -147,6 +147,7 @@ public class Blood_Bank_Implimentaion extends UnicastRemoteObject implements Blo
         return bloodType.matches(bloodTypePattern);
 }
     
+    @Override
     public boolean isAdminValid(String username, String password) {
     try {
         DbConnector dbConnector = new DbConnector();
@@ -162,7 +163,6 @@ public class Blood_Bank_Implimentaion extends UnicastRemoteObject implements Blo
         con.close();
         return isValid;
     } catch (SQLException e) {
-        e.printStackTrace();
         return false;
     }
 }

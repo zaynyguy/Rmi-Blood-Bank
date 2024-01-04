@@ -80,11 +80,7 @@
               <Component id="Show_Button" alignment="0" max="32767" attributes="0"/>
               <Component id="Update_Button" alignment="0" pref="126" max="32767" attributes="0"/>
               <Component id="Home_Button" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="Create_Button" max="32767" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              </Group>
+              <Component id="Create_Button" alignment="1" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -402,9 +398,7 @@
                     <Property name="rows" type="int" value="5"/>
                     <Property name="text" type="java.lang.String" value="&#xa;&gt; Create Donners: Adds a donor to the database that we could later update,&#xa;  show, or delete&#xa;&#xa;&gt; Update Donners: updates the quantity of the blood that has been donated &#xa;  before you can add or take from it (-N or N) N been the quntity of the blood&#xa;&#xa;&gt; Show Donners: it shows all the donners in the table in a table form&#xa;&#xa;&gt; Delete Donners: deletes donors using there names&#xa;"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-                        <TitledBorder/>
-                      </Border>
+                      <Border info="null"/>
                     </Property>
                     <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                       <Color id="Text Cursor"/>

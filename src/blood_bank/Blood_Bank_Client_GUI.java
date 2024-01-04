@@ -12,11 +12,11 @@ import java.rmi.registry.Registry;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -184,10 +184,7 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
             .addComponent(Show_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(Update_Button, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)
             .addComponent(Home_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Side_PanelLayout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(Create_Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+            .addComponent(Create_Button, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Side_PanelLayout.setVerticalGroup(
             Side_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,7 +238,7 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         jTextArea1.setForeground(java.awt.Color.black);
         jTextArea1.setRows(5);
         jTextArea1.setText("\n> Create Donners: Adds a donor to the database that we could later update,\n  show, or delete\n\n> Update Donners: updates the quantity of the blood that has been donated \n  before you can add or take from it (-N or N) N been the quntity of the blood\n\n> Show Donners: it shows all the donners in the table in a table form\n\n> Delete Donners: deletes donors using there names\n");
-        jTextArea1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextArea1.setBorder(null);
         jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jTextArea1.setDisabledTextColor(java.awt.Color.black);
         jTextArea1.setEnabled(false);
@@ -674,7 +671,7 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         Update_Button.setBackground(new Color(180,8,8));
         Show_Button.setBackground(new Color(180,8,8));
         Delete_Button.setBackground(new Color(180,8,8));
-        
+        Home_Button.setBorder(BorderFactory.createEmptyBorder()); // Set empty border
         
         Home_Button.setForeground(Color.white);
         Create_Button.setForeground(Color.black);
@@ -691,6 +688,7 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         Update_Button.setBackground(Color.white);
         Show_Button.setBackground(new Color(180,8,8));
         Delete_Button.setBackground(new Color(180,8,8));
+        Update_Button.setBorder(BorderFactory.createEmptyBorder()); // Set empty border
         
         Home_Button.setForeground(Color.white);
         Create_Button.setForeground(Color.white);
@@ -707,6 +705,7 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         Update_Button.setBackground(new Color(180,8,8));
         Show_Button.setBackground(Color.white);
         Delete_Button.setBackground(new Color(180,8,8));
+        Show_Button.setBorder(BorderFactory.createEmptyBorder()); // Set empty border
         
         Home_Button.setForeground(Color.white);
         Create_Button.setForeground(Color.white);
@@ -723,6 +722,7 @@ public class Blood_Bank_Client_GUI extends javax.swing.JFrame {
         Update_Button.setBackground(new Color(180,8,8));
         Show_Button.setBackground(new Color(180,8,8));
         Delete_Button.setBackground(Color.white);
+        Delete_Button.setBorder(BorderFactory.createEmptyBorder()); // Set empty border
         
         Home_Button.setForeground(Color.white);
         Create_Button.setForeground(Color.white);

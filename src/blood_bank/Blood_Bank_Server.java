@@ -1,6 +1,7 @@
 
 package blood_bank;
 
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
@@ -16,9 +17,8 @@ public class Blood_Bank_Server {
             registry.rebind("BloodBank", bloodBank);
             
             System.out.println("Blood Bank server is running.");
-        } catch (Exception e) {
+        } catch (RemoteException e) {
             System.err.println("Server exception: " + e.toString());
-            e.printStackTrace();
         }
     }
 }
